@@ -36,5 +36,10 @@ Visualazing the ball
 rosrun ball_chaser process_image 
 ```
 
+Support for image processing and modulating image from:
+```
+https://www.youtube.com/watch?v=EmtU0eloTlE&list=PLRqwX-V7Uu6YB9x6f23CBftiyx0u_5sO9&index=4
+https://www.youtube.com/watch?v=j_XyeWg_3EE
+```
 
 
