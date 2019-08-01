@@ -24,12 +24,6 @@ launching the chaser
 roslaunch ball_chaser ball_chaser.launch
 ```
 
-Run the drive robot node
-
-```
-rosrun ball_chaser drive_bot
-```
-
 Visualazing the ball
 
 ```
