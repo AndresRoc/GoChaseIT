@@ -21,32 +21,31 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 {
-
-    int white_pixel = 255;
+	int white_pixel = 255;
 	
 	// TODO: Loop through each pixel in the image and check if there's a bright white one
     // Step 1: Looking for white pixel by presence and position using ' width = step= x' ' heigh= y'
     
     for(int x=0; x<img.step; x++){ // X coord
-    	for(int y=0; y<img.step; y++){ // Y coord
+    	for(int y=0; y<img.height; y++){ // Y coord
     		int loc = x+y*img.step; // dimensional location, 
 		    // Then, identify if this pixel falls in the left, center, or right side of the image
     		if(img.data[loc] == white_pixel)
     		{
    			    // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    			float dir = (float)x / img.width; // Locating the direction by ocuppancy
-    			if (dir < .3) // left 
+    			float dir = ((float)x / img.width)*100; // Locating the direction by ocuppancy
+    			if (dir < 30) // first 3rd part = left 
     			{ 
-    				drive_robot(0., .2);
+    				drive_robot(0., .7);
     			}
-    			else if (.7 < dir)  // right
+    			else if (70 < dir)  // Third 3rd part of the image = right
     			{
-    				drive_robot(0., -.2);
+    				drive_robot(0., -.7);
 
     			}
     			else 
     			{
-    				drive_robot(0.2,0.); // center
+    				drive_robot(0.7,0.); // 70 > dir > 30 = center
     			}
     			return;
     		}
@@ -74,3 +73,4 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
