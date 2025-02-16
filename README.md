@@ -24,7 +24,7 @@ launching the chaser
 roslaunch ball_chaser ball_chaser.launch
 ```
 
-Visualazing the ball
+Visualizing the ball
 
 ```
 rosrun ball_chaser process_image 
